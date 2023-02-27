@@ -3,7 +3,7 @@ const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// array of questions for user
+// Array of questions for user
 const questions = [
     {
         type: 'input',
@@ -55,17 +55,22 @@ const questions = [
     },
 ];
 
-// function to initialize program
+// Function to initialize program and to write README file
 function init() {
+    //Activates "inquirer"; once questions have been answered employs user input, "data", to construct a README file
     inquirer
     .prompt(questions).then((data) => {
+    //Variable to create README file name
     const filename = `README.md`;
+    //Variable to call the generateMarkdown() function using the answers, "data", obtained from "inquirer"
     const fileContents = generateMarkdown(data);
+    //Writes a README file in the project folder; using a separate folder prevents "writeFile" from overwriting the README
+    //for this programme
     fs.writeFile("./project/" + filename, fileContents, (err) =>
         err ? console.log(err) : console.log('Success!')
     );
 })
 }
 
-// function call to initialize program
+// Function call to initialize program
 init();

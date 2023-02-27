@@ -1,8 +1,14 @@
-// function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
+  //Holds the URL for the license
   let badge;
+  //Holds the license name for the license section of the README
   let licenseInfo;
+  //Holds text as part of the license description for the README; this is reset to "" if the user selects "No License".
   let licenseText = "This project is licensed under the "
+  
+  //Conditional to determine the appropriate settings for the three variables above based upon user input regarding the 
+  //project license
   if (data.license === "Apache 2.0") {
     badge = "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
     licenseInfo = "Apache License 2.0";
@@ -26,6 +32,8 @@ function generateMarkdown(data) {
     licenseText = "";
     licenseInfo = "No license."
   }
+  
+  //README template, completed with user information, "data", obtained from "informer"
   return `
   # ${data.title}
   

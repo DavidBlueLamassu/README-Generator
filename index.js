@@ -55,17 +55,13 @@ const questions = [
     },
 ];
 
-// function to write README file
-// function writeToFile(fileName, data) {
-// }
-
 // function to initialize program
 function init() {
     inquirer
     .prompt(questions).then((data) => {
-    const filename = `README2.md`;
+    const filename = `README.md`;
     const fileContents = generateMarkdown(data);
-    fs.writeFile(filename, fileContents, (err) =>
+    fs.writeFile("./project/" + filename, fileContents, (err) =>
         err ? console.log(err) : console.log('Success!')
     );
 })

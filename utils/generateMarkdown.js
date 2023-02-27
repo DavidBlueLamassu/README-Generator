@@ -2,6 +2,7 @@
 function generateMarkdown(data) {
   let badge;
   let licenseInfo;
+  let licenseText = "This project is licensed under the "
   if (data.license === "Apache 2.0") {
     badge = "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
     licenseInfo = "Apache License 2.0";
@@ -22,12 +23,17 @@ function generateMarkdown(data) {
     licenseInfo = "Creative Commons Zero v1.0 Universal";
   } else {
     badge = "";
+    licenseText = "";
     licenseInfo = "No license."
   }
-  return `${badge}
+  return `
   # ${data.title}
+  
+  ${badge}
+
   ## Description
   ${data.description}
+
   ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
@@ -35,21 +41,30 @@ function generateMarkdown(data) {
   - [Contributing](#contributing)
   - [Tests](#tests)
   - [Questions](#questions)
+
   ## Installation
-  ${data.installation}
+  To install necessary dependencies, run the following command:
+  ~~~
   ${data.dependencies}
+  ~~~
   ## Usage
   ${data.usage}
+
   ## License
-  ${licenseInfo}
+  ${licenseText}${licenseInfo}
+
   ## Contributing
   ${data.contributing}
+
   ## Tests
+  To run tests, run the following command:
+  ~~~
   ${data.tests}
-  ${data.testCommand}
+  ~~~
+
   ## Questions
-  ${data.email}
-  ${data.github}
+  If you have any questions regarding the repo, open an issue or contact me directly at ${data.email}.
+  You can find more of my work at [${data.github}](https://github.com/${data.github}).
 `;
 }
 

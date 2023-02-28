@@ -3,7 +3,11 @@ const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// Array of questions for user
+//Array of questions for user. The setting of default values for the "dependencies" and "tests" queries derived from
+//cullanrocks's answer (edited by zx485) to a question on "Stack Overflow": Mo Valipour, "How to programmatically set 
+//selected value for an answer in inquirer", Stack Overflow (7 October 2015), 
+//https://stackoverflow.com/questions/33002216/how-to-programmatically-set-selected-value-for-an-answer-in-inquirer, 
+//last viewed: 28 February 2023.
 const questions = [
     {
         type: 'input',
@@ -65,7 +69,10 @@ function init() {
     //Variable to call the generateMarkdown() function using the answers, "data", obtained from "inquirer"
     const fileContents = generateMarkdown(data);
     //Writes a README file in the project folder; using a separate folder prevents "writeFile" from overwriting the README
-    //for this programme
+    //for this programme. The code to direct "writeFile" to write in a different folder derives from Lucifer's answer to
+    //a question on "Stack Overflow": Danyal Ahmad, "How to write a file to specific directory in NodeJS?", Stack Overflow 
+    //(23 January 2019), https://stackoverflow.com/questions/54321161/how-to-write-a-file-to-specific-directory-in-nodejs, 
+    //last viewed 28 February 2023.
     fs.writeFile("./project/" + filename, fileContents, (err) =>
         err ? console.log(err) : console.log('Success!')
     );

@@ -8,7 +8,9 @@ function generateMarkdown(data) {
   let licenseText = "This project is licensed under the "
   
   //Conditional to determine the appropriate values for the three variables above, based upon user input regarding the 
-  //project license
+  //project license. The license URLs were obtained from Github: "Markdown License badges", GitHub, 
+  //https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba, last viewed 27 February 2023.
+  
   if (data.license === "Apache 2.0") {
     badge = "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
     licenseInfo = "Apache License 2.0";
@@ -33,7 +35,15 @@ function generateMarkdown(data) {
     licenseInfo = "No license."
   }
   
-  //README template, completed with user information, "data", obtained from "informer"
+  //README template, completed with user information ("data") obtained from "informer". A source I found useful 
+  //for writing Markdown code for internal references, in the Table of Contents section, was a question by 
+  //Minstrel on "Stack Overflow": Minstrel, "Markdown : internal link to section doesn't work", Stack Overflow 
+  //(25 October 2018), https://stackoverflow.com/questions/52991381/markdown-internal-link-to-section-doesnt-work, 
+  //last viewed 28 February 2023. kotchwane's answer to another question on "Stack Overflow" provided a useful method 
+  //for creating boxes in Markdown using triple tildes ("~~~"), as employed in the "Installation" and "Tests" sections 
+  //below: TJB, "How can I create a text box for a note in markdown?", Stack Overflow (3 September 2014), 
+  //https://stackoverflow.com/questions/25654845/how-can-i-create-a-text-box-for-a-note-in-markdown, last viewed: 
+  //28 February 2023.
   return `
   # ${data.title}
   

@@ -16,6 +16,8 @@ To run the README Generator, this repo must first be cloned onto the user's mach
 ## Usage
 To use the README Generator right-click on "index.js" and select "Open in Integrated Terminal". Then type "node index.js" and answer the questions asked by "inquirer". Once these questions have been correctly answered the application will print "Success!" and a README will be generated in the "project" folder. This README can then be copied and pushed to the user's project. Upon download the README Generator contains a sample README file in the "project" folder; this, and any subsequent README, will be overwritten when the user generates a new README file using the application.
 
+[Click here to watch a short video demonstrating the functionality of the application.](https://drive.google.com/file/d/1_okkZx_k8LXx_JbSuNgK8wbemKb0Gf2C/view)
+
 The following image gives a screenshot of the questions put forward by "inquirer" to the user, along with sample replies:
 
 ![Screenshot README Generator functionality](./images/generator-functionality.png)
